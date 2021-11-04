@@ -24,13 +24,37 @@ def get_result2(input_value):
     grid[0, 0] = 1
     for i in range(1, n):
         x, y = i, -i+1
-        
+        grid[x, y] = grid[x - 1, y - 1] + grid[x - 1, y] + grid[x - 1, y + 1] + grid[x, y - 1] + grid[x, y + 1] + grid[
+            x + 1, y - 1] + grid[x + 1, y] + grid[x + 1, y + 1]
+        if grid[x, y] > input_value:
+            return grid[x, y]
+        width = 2*i+1
+        for j in range(width-2):
+            y += 1
+            grid[x, y] = grid[x - 1, y - 1] + grid[x - 1, y] + grid[x - 1, y + 1] + grid[x, y - 1] + grid[x, y + 1] + \
+                         grid[x + 1, y - 1] + grid[x + 1, y] + grid[x + 1, y + 1]
+            if grid[x, y] > input_value:
+                return grid[x, y]
+        for j in range(width-1):
+            x -= 1
+            grid[x, y] = grid[x - 1, y - 1] + grid[x - 1, y] + grid[x - 1, y + 1] + grid[x, y - 1] + grid[x, y + 1] + \
+                         grid[x + 1, y - 1] + grid[x + 1, y] + grid[x + 1, y + 1]
+            if grid[x, y] > input_value:
+                return grid[x, y]
+        for j in range(width-1):
+            y -= 1
+            grid[x, y] = grid[x - 1, y - 1] + grid[x - 1, y] + grid[x - 1, y + 1] + grid[x, y - 1] + grid[x, y + 1] + \
+                         grid[x + 1, y - 1] + grid[x + 1, y] + grid[x + 1, y + 1]
+            if grid[x, y] > input_value:
+                return grid[x, y]
+        for j in range(width-1):
+            x += 1
+            grid[x, y] = grid[x - 1, y - 1] + grid[x - 1, y] + grid[x - 1, y + 1] + grid[x, y - 1] + grid[x, y + 1] + \
+                         grid[x + 1, y - 1] + grid[x + 1, y] + grid[x + 1, y + 1]
+            if grid[x, y] > input_value:
+                return grid[x, y]
+    return -1
 
-    return 0
-
-
-# with open("input.txt") as f:
-#     lines = f.readlines()
 
 print("Answer part 1:", get_result1(312051))
 print("Answer part 2:", get_result2(312051))
