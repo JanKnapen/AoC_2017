@@ -20,9 +20,9 @@ def get_result1(lengths, li, cur=0, skip=0):
     return li[0] * li[1], li, cur, skip
 
 
-def get_result2():
+def get_result2(string):
     lengths = []
-    for char in lines[0]:
+    for char in string:
         lengths.append(ord(char))
     lengths += [17, 31, 73, 47, 23]
 
@@ -46,9 +46,10 @@ def get_result2():
     return result
 
 
-with open("input.txt") as f:
-    lines = f.read().splitlines()
+if __name__ == '__main__':
+    with open("input.txt") as f:
+        lines = f.read().splitlines()
 
 
-print("Answer part 1:", get_result1(list(map(int, lines[0].split(','))), list(range(256)))[0])
-print("Answer part 2:", get_result2())
+    print("Answer part 1:", get_result1(list(map(int, lines[0].split(','))), list(range(256)))[0])
+    print("Answer part 2:", get_result2(lines[0]))
