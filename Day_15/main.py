@@ -1,5 +1,3 @@
-
-
 def get_result1(A, B):
     total_matches = 0
     for i in range(40000000):

@@ -51,5 +51,5 @@ if __name__ == '__main__':
         lines = f.read().splitlines()
 
 
-    print("Answer part 1:", get_result1(list(map(int, lines[0].split(','))), list(range(256)))[0])
-    print("Answer part 2:", get_result2(lines[0]))
+print("Answer part 1:", get_result1(list(map(int, lines[0].split(','))), list(range(256)))[0])
+print("Answer part 2:", get_result2(lines[0]))
